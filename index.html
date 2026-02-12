@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>NOVACORE · iconic dev · inner services + pages</title>
+  <!-- Google Fonts & Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- ANIME.JS · for iconic motion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <style>
+    /* ---------- GLOBAL RESET · MODER UI · STICKY NAV · 100vh SECTIONS ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #03070b;
+      color: #edf2f9;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- CUSTOM CURSOR · GLOW ---------- */
+    .cursor-spot {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle at center, rgba(0, 255, 255, 0.04) 0%, rgba(0, 153, 255, 0.01) 45%, transparent 80%);
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
+      mix-blend-mode: screen;
+    }
+
+    /* ---------- HYPER-DIMENSIONAL BACKGROUND ---------- */
+    .grid-matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(0, 180, 255, 0.04) 1.2px, transparent 1.2px),
+        linear-gradient(90deg, rgba(0, 180, 255, 0.04) 1.2px, transparent 1.2px);
+      background-size: 55px 55px;
+      z-index: -3;
+      animation: gridPulse 12s infinite alternate;
+    }
+
+    @keyframes gridPulse {
+      0% { opacity: 0.4; }
+      100% { opacity: 0.8; }
+    }
+
+    .nebula {
+      position: fixed;
+      width: 90vmax;
+      height: 90vmax;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 50%, rgba(25, 150, 255, 0.12), transparent 75%);
+      top: -30vh;
+      right: -15vw;
+      filter: blur(90px);
+      z-index: -2;
+      animation: nebulaFloat 28s infinite alternate;
+    }
+
+    .nebula2 {
+      left: -10vw;
+      bottom: -20vh;
+      width: 100vmin;
+      height: 100vmin;
+      background: radial-gradient(circle, rgba(170, 0, 255, 0.08), transparent 80%);
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      animation: nebulaFloat2 25s infinite alternate;
+      z-index: -2;
+    }
+
+    @keyframes nebulaFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-12%, -8%) scale(1.2); }
+    }
+    @keyframes nebulaFloat2 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(10%, 15%) scale(1.4); }
+    }
+
+     /* ========== STICKY NAVIGATION · PERFECT RESPONSIVE · TOGGLE BUTTON ========== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2.8rem;
+      background: rgba(3, 7, 11, 0.75);
+      backdrop-filter: blur(22px) saturate(180%);
+      border-bottom: 1px solid rgba(42, 212, 182, 0.18);
+      width: 100%;
+      transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      z-index: 1000;
+      position: sticky;
+      top: 0;
+      left: 0;
+      box-shadow: 0 8px 30px -10px rgba(0,0,0,0.5);
+    }
+
+    /* nav shrink on scroll (margin top/bottom reduced) */
+    nav.nav-shrink {
+      padding-top: 0.65rem !important;
+      padding-bottom: 0.65rem !important;
+      background: rgba(4, 15, 22, 0.9);
+      backdrop-filter: blur(26px);
+      border-bottom-color: rgba(31, 230, 212, 0.4);
+      box-shadow: 0 12px 30px -10px #00b8b04d;
+    }
+
+    .logo {
+      font-size: 2.1rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      background: linear-gradient(150deg, #ffffff, #c2f0ff, #94f0e6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.25s;
+    }
+    .logo i {
+      -webkit-text-fill-color: transparent;
+      background: linear-gradient(145deg, #2ad4b6, #b180ff);
+      -webkit-background-clip: text;
+      font-size: 2.3rem;
+      filter: drop-shadow(0 0 14px #2ad4b6aa);
+    }
+
+    /* ---------- HAMBURGER TOGGLE · ONLY ON RESPONSIVE ---------- */
+    .nav-toggle {
+      display: none;
+      font-size: 2.2rem;
+      background: transparent;
+      border: none;
+      color: #b3f0ff;
+      cursor: pointer;
+      transition: 0.2s;
+      padding: 0.2rem 0.6rem;
+      border-radius: 18px;
+    }
+    .nav-toggle:hover {
+      color: #2ad4b6;
+      text-shadow: 0 0 25px cyan;
+      background: rgba(42,212,182,0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.2rem;
+      transition: all 0.4s ease;
+    }
+
+    .nav-links a {
+      margin-left: 2rem;
+      font-weight: 600;
+      font-size: 1.12rem;
+      position: relative;
+      padding-bottom: 6px;
+      color: #e2f3ff;
+      transition: 0.25s;
+      letter-spacing: -0.01rem;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2.8px;
+      background: linear-gradient(90deg, #2ad4b6, #b180ff);
+      transition: 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      border-radius: 6px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+      text-shadow: 0 0 18px #2ad4b6;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ---------- MAIN CONTAINER · SECTIONS 100vh ---------- */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 3rem;
+      position: relative;
+      z-index: 20;
+    }
+
+    /* EACH SECTION = 100vh (except footer can be auto) */
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 0;
+      scroll-margin-top: 70px; /* respect sticky nav */
+    }
+
+    /* hero specific */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- HERO · BIGGER ---------- */
+    .hero-content {
+      flex: 1 1 450px;
+    }
+
+    .hero-badge {
+      background: rgba(0, 255, 255, 0.08);
+      backdrop-filter: blur(5px);
+      display: inline-block;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      border: 1px solid rgba(0, 225, 255, 0.5);
+      margin-bottom: 2rem;
+      color: #bcffff;
+      box-shadow: 0 0 30px #00e0ff2a;
+    }
+
+    .hero h1 {
+      font-size: 5.2rem;
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 1.8rem;
+      background: linear-gradient(to right, #fff, #d4f0ff, #ade1ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -2.8px;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 650px;
+      color: #c2d9ec;
+      margin-bottom: 3rem;
+      font-weight: 300;
+      border-left: 5px solid #27dbff;
+      padding-left: 2rem;
+    }
+
+    .glow-btn {
+      background: linear-gradient(165deg, #00334d, #001f2e);
+      border: 1.2px solid #1ef0ffb0;
+      color: white;
+      padding: 1.2rem 3.4rem;
+      border-radius: 80px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 40px #00c3ff66;
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      border: none;
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+      margin-top: 50px;
+    }
+
+    .glow-btn i {
+      font-size: 1.4rem;
+    }
+
+    .glow-btn:hover {
+      box-shadow: 0 0 70px #00eeff;
+      background: linear-gradient(165deg, #005073, #002f47);
+      transform: scale(1.06);
+    }
+
+    .hero-visual {
+      flex: 1 1 450px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .code-card {
+      background: rgba(8, 22, 33, 0.8);
+      backdrop-filter: blur(18px);
+      padding: 2.8rem 2.2rem;
+      border-radius: 40px;
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      width: 100%;
+      max-width: 530px;
+      box-shadow: 0 30px 60px -15px black;
+      transform: rotate(3deg);
+    }
+
+    .code-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 1.4rem;
+      color: #d3ecff;
+      font-size: 1.15rem;
+    }
+
+    .dot-blink {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: cyan;
+      box-shadow: 0 0 20px cyan;
+    }
+    .dot-blink.red { background: #ff6565; box-shadow: 0 0 20px #ff6565; }
+    .dot-blink.purple { background: #ca6eff; box-shadow: 0 0 20px #ca6eff; }
+
+    /* ---------- SERVICES · MASSIVE GRID (100vh section) ---------- */
+    .section-title {
+      font-size: 3.4rem;
+      font-weight: 800;
+      margin-bottom: 2.5rem;
+      letter-spacing: -1.5px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title span {
+      -webkit-text-stroke: 2px #00e6ff;
+      color: transparent;
+      font-weight: 900;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 100px;
+      height: 6px;
+      background: linear-gradient(90deg, #00ffff, #b300ff);
+      border-radius: 6px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.8rem;
+      margin: 3rem 0;
+    }
+
+    .service-card {
+      background: rgba(12, 25, 40, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 255, 255, 0.15);
+      padding: 2.8rem 2rem;
+      border-radius: 48px;
+      transition: 0.3s all ease;
+      box-shadow: 0 20px 40px -15px #00000080;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, cyan, #f0f, #ffaa33);
+      transition: 0.7s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-20px) scale(1.03);
+      border-color: #00eeff;
+      box-shadow: 0 0 60px #00ffff25;
+    }
+    .service-card:hover::before {
+      left: 0;
+    }
+
+    .service-icon {
+      font-size: 3.2rem;
+      background: linear-gradient(145deg, #00e5ff, #3c6eff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    .service-card p {
+      color: #bfdef5;
+      font-size: 1.05rem;
+      flex: 1;
+    }
+
+    .learn-more-btn {
+      margin-top: 2rem;
+      background: rgba(0, 255, 255, 0.05);
+      border: 1.5px solid #2ad4b6;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.3s;
+      width: fit-content;
+      backdrop-filter: blur(4px);
+    }
+    .learn-more-btn i {
+      transition: transform 0.2s;
+    }
+    .learn-more-btn:hover {
+      background: #2ad4b6;
+      color: #03070b;
+      box-shadow: 0 0 25px #2ad4b6;
+    }
+    .learn-more-btn:hover i {
+      transform: translateX(6px);
+    }
+
+    /* ---------- ICONIC SHOWCASE (100vh) ---------- */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.2rem;
+      margin: 3rem 0;
+    }
+
+    .project-card {
+      background: rgba(6, 18, 28, 0.8);
+      backdrop-filter: blur(8px);
+      border-radius: 32px;
+      padding: 2.5rem 1.8rem;
+      border: 1px solid #2a4a5a;
+      transition: 0.25s;
+    }
+
+    .project-card:hover {
+      background: #0e1f2c;
+      border-color: cyan;
+      transform: translateY(-12px);
+    }
+
+    .project-icon {
+      font-size: 2.8rem;
+      color: #00e6ff;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-card h4 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-tag {
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      background: #00aaff20;
+      border-radius: 40px;
+      color: #aaf0ff;
+      margin-top: 1.2rem;
+    }
+
+    /* ---------- PROCESS SECTION 100vh ---------- */
+    .process-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin: 2rem 0;
+      background: rgba(0, 20, 30, 0.4);
+      backdrop-filter: blur(14px);
+      border-radius: 70px;
+      padding: 4rem;
+      border: 1px solid cyan;
+    }
+
+    .process-step {
+      flex: 1 1 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .step-num {
+      font-size: 3.5rem;
+      font-weight: 900;
+      -webkit-text-stroke: 2px cyan;
+      color: transparent;
+    }
+
+    /* ---------- TRUST BAR ---------- */
+    .trust-bar {
+      display: flex;
+      justify-content: space-around;
+      background: #00121ebb;
+      border-radius: 90px;
+      padding: 2rem 2.5rem;
+      margin: 2rem 0;
+      border: 1px solid #00ffff33;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.3rem;
+    }
+
+    /* ---------- CONTACT MEGA (100vh) ---------- */
+    .contact-mega {
+      background: radial-gradient(circle at 0% 0%, #02131d, #010a12);
+      border-radius: 80px 80px 40px 40px;
+      padding: 5rem 4.5rem;
+      margin: 2rem 0;
+      border: 1px solid #00ffff2e;
+      box-shadow: 0 0 100px #00a6ff1a;
+    }
+
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5rem;
+    }
+
+    .contact-info-block {
+      flex: 1 1 300px;
+    }
+
+    .contact-info-block h2 {
+      font-size: 3rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .info-line {
+      display: flex;
+      gap: 1.2rem;
+      margin: 2rem 0;
+      font-size: 1.2rem;
+    }
+
+    .form-block {
+      flex: 2 1 500px;
+    }
+
+    .input-field {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .input-field input,
+    .input-field textarea {
+      width: 100%;
+      padding: 1.4rem 1.8rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 2px solid rgba(0, 255, 255, 0.15);
+      border-radius: 60px;
+      font-size: 1.1rem;
+      color: white;
+      transition: 0.2s;
+    }
+
+    .input-field textarea {
+      min-height: 180px;
+    }
+
+    .input-field input:focus,
+    .input-field textarea:focus {
+      border-color: cyan;
+      background: rgba(0, 255, 255, 0.07);
+      box-shadow: 0 0 35px cyan;
+      outline: none;
+    }
+
+    .input-field label {
+      position: absolute;
+      left: 1.8rem;
+      top: -0.9rem;
+      background: #021019;
+      padding: 0.2rem 1rem;
+      font-size: 0.9rem;
+      color: #b0f0ff;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .mega-btn {
+      background: linear-gradient(135deg, #0099ff, #003f88);
+      border: none;
+      padding: 1.3rem 4rem;
+      border-radius: 80px;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      border: 1px solid cyan;
+      transition: 0.3s;
+    }
+
+    .mega-btn:hover {
+      background: #0066cc;
+      box-shadow: 0 0 60px #00ddff;
+      transform: scale(1.06);
+    }
+
+    .status-big {
+      margin-top: 2.5rem;
+      font-size: 1.2rem;
+    }
+
+    /* ========== 🚀 PROFECTIONAL FOOTER · COMPLETE NAV + SERVICES + CONTACT ========== */
+    .footer-professional {
+      background: rgba(4, 12, 20, 0.95);
+      backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(42, 212, 182, 0.3);
+      padding: 4rem 3rem 2.5rem;
+      margin-top: 5rem;
+      border-radius: 48px 48px 0 0;
+      box-shadow: 0 -20px 40px rgba(0,0,0,0.5);
+      width: 100%;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 2fr 2fr 2.5fr;
+      gap: 2.8rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-col h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1.8rem;
+      background: linear-gradient(145deg, #b0faff, #9ad4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+      border-left: 4px solid cyan;
+      padding-left: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .footer-links a {
+      color: #cde3f0;
+      font-size: 1.05rem;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+    }
+
+    .footer-links a i {
+      color: #2ad4b6;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      text-shadow: 0 0 12px cyan;
+      transform: translateX(6px);
+    }
+
+    .footer-links a:hover i {
+      color: white;
+    }
+
+    /* .service-links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem 1.2rem;
+    } */
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.3rem;
+      font-size: 1.05rem;
+      color: #cde3f0;
+    }
+
+    .footer-contact-item i {
+      width: 28px;
+      color: cyan;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+
+    .social-links-footer {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .social-links-footer i {
+      font-size: 1.3rem;
+      color: #cde3f0;
+      transition: 0.25s;
+    }
+
+    .social-links-footer i:hover {
+      color: cyan;
+      filter: drop-shadow(0 0 18px cyan);
+      transform: translateY(-6px) scale(1.1);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 2.5rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: #a0c4d4;
+      font-size: 0.98rem;
+    }
+
+    .footer-bottom i {
+      color: cyan;
+    }
+
+    @media (max-width: 1100px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 1rem; }
+      .footer-professional { padding: 2.5rem 1.5rem; }
+    }
+
+    /* ---------- INNER SERVICE PAGE STYLES (shared) ---------- */
+    .inner-service-hero {
+      min-height: 40vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 2rem;
+    }
+    .inner-title {
+      font-size: 4.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      background: linear-gradient(to right, #fff, #b0f0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .inner-desc {
+      font-size: 1.5rem;
+      color: #cfe6ff;
+      border-left: 6px solid cyan;
+      padding-left: 2rem;
+      margin: 2rem 0;
+    }
+    .inner-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .feature-item {
+      background: rgba(0, 30, 50, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 40px;
+      border: 1px solid #00ffff22;
+    }
+
+    /* ========== RESPONSIVE FONT-SIZE ADAPT ========== */
+    @media (max-width: 1000px) {
+      .container { padding: 0 1.8rem; }
+      .hero h1 { font-size: 4rem; }
+      .showcase-grid { grid-template-columns: repeat(2,1fr); }
+      nav { padding: 1rem 1.8rem; }
+    }
+
+    @media (max-width: 800px) {
+      .hero h1 { font-size: 3.2rem; letter-spacing: -1.5px; }
+      .hero p { font-size: 1.2rem; padding-left: 1.2rem; }
+      .glow-btn { font-size: 1.1rem; padding: 1rem 2.5rem; }
+      .section-title { font-size: 2.6rem; }
+      .service-card h3 { font-size: 1.7rem; }
+      .service-card p { font-size: 0.98rem; }
+      .project-card h4 { font-size: 1.6rem; }
+      .trust-item { font-size: 1.1rem; }
+      .process-step h3 { font-size: 1.6rem !important; }
+      .contact-info-block h2 { font-size: 2.6rem; }
+      .info-line { font-size: 1rem; }
+      .mega-btn { font-size: 1.2rem; padding: 1rem 2.5rem; }
+      .code-card { padding: 1.8rem; }
+      .code-line { font-size: 1rem; }
+      .logo { font-size: 1.8rem; }
+      .logo i { font-size: 2rem; }
+      .container { padding: 0 1.5rem; }
+
+      .nav-toggle {
+        display: block;
+      }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(3, 7, 11, 0.96);
+        backdrop-filter: blur(22px);
+        border-bottom: 1px solid rgba(42, 212, 182, 0.3);
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s ease, visibility 0.4s, padding 0.3s;
+        border-radius: 0 0 24px 24px;
+        box-shadow: 0 30px 30px -10px black;
+      }
+      .nav-links.active {
+        max-height: 400px;
+        padding: 1.8rem 0 2.2rem;
+        visibility: visible;
+        opacity: 1;
+      }
+      .nav-links a {
+        margin: 0.7rem 0;
+        font-size: 1.3rem;
+        width: fit-content;
+      }
+      nav {
+        flex-wrap: wrap;
+        padding: 0.9rem 1.5rem;
+      }
+      nav.nav-shrink {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .showcase-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.8rem; }
+      .hero p { font-size: 1.1rem; }
+      .section-title { font-size: 2.2rem; }
+      .process-area { padding: 2rem; }
+      .process-step h3 { font-size: 1.4rem !important; }
+      .step-num { font-size: 2.8rem; }
+      .trust-bar { padding: 1.5rem 1rem; }
+      .trust-item { font-size: 1rem; gap: 8px; }
+      .contact-mega { padding: 2.5rem 1.5rem; }
+      .contact-info-block h2 { font-size: 2.2rem; }
+      .mega-btn { font-size: 1.1rem; }
+      .inner-title { font-size: 3rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      .hero-badge { font-size: 0.75rem; letter-spacing: 2px; }
+      .glow-btn { font-size: 1rem; padding: 0.8rem 1.8rem; }
+      .section-title { font-size: 2rem; }
+      .service-card { padding: 2rem 1.5rem; }
+      .service-icon { font-size: 2.8rem; }
+      .service-card h3 { font-size: 1.5rem; }
+      .code-card { padding: 1.5rem; transform: rotate(2deg); }
+      .logo { font-size: 1.6rem; }
+      .logo i { font-size: 1.8rem; }
+      .nav-links a { font-size: 1.2rem; }
+      .contact-info-block h2 { font-size: 2rem; }
+      .input-field input, .input-field textarea { padding: 1rem 1.5rem; }
+      .inner-title { font-size: 2.5rem; }
+    }
+
+    /* utility to hide main sections when showing inner page */
+    .hidden-section {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor-spot" id="cursorSpot"></div>
+  <div class="grid-matrix"></div>
+  <div class="nebula"></div>
+  <div class="nebula2"></div>
+
+  <!-- STICKY NAV · WITH TOGGLE BUTTON · COMPRESS ON SCROLL -->
+  <nav id="mainNav">
+    <div class="logo">
+      <i class="fas fa-atom"></i> NOVACORE<span style="font-weight:300; -webkit-text-fill-color:#7fd6ff;">.</span>
+    </div>
+    <!-- Hamburger toggle button (visible on mobile) -->
+    <button class="nav-toggle" id="navToggleBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#" onclick="showMainPage(); return false;">Home</a>
+      <a href="#" onclick="showMainPageAndScroll('#services'); return false;">Services</a>
+      <a href="#" onclick="showMainPageAndScroll('#work'); return false;">Work</a>
+      <a href="#" onclick="showMainPageAndScroll('#process'); return false;">Process</a>
+      <a href="#" onclick="showMainPageAndScroll('#contact'); return false;">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ========== MAIN PORTFOLIO PAGE (ALL SECTIONS) ========== -->
+  <div id="mainPageContent">
+    <div class="container">
+      <!-- HOME SECTION (HERO) 100vh -->
+      <section id="home" class="hero-section">
+        <div class="hero-content">
+          <span class="hero-badge"><i class="fas fa-microchip"></i> ICONIC INDIVIDUAL DEVELOPER</span>
+          <h1 class="anime-hero-title">build iconic.<br>moder UI/UX.</h1>
+          <p class="anime-hero-p">100% perfect developer website — futuristic animation, smart email automation, client-first vibe. feel free to connect.</p>
+          <a href="#" onclick="showMainPageAndScroll('#contact'); return false;" class="glow-btn">
+            <span>feel free to contact</span> <i class="fas fa-paper-plane"></i>
+          </a>
+        </div>
+        <div class="hero-visual">
+          <div class="code-card anime-card">
+            <div class="code-line"><span class="dot-blink red"></span> <i class="fas fa-crown" style="color: gold;"></i> best & iconic</div>
+            <div class="code-line"><span class="dot-blink purple"></span> &lt;Animation /&gt; moder UX</div>
+            <div class="code-line"><span class="dot-blink" style="background:#00ff99;"></span> EmailJS · auto confirm</div>
+            <div class="code-line" style="margin-top: 25px; background: #001c28; padding: 12px; border-radius: 40px;">
+              <i class="fas fa-envelope" style="color:cyan;"></i> client@domain — automated reply
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES SECTION 100vh -->
+      <section id="services">
+        <h2 class="section-title">moder <span>services</span></h2>
+        <div class="services-grid" id="serviceGrid">
+          <!-- service cards with dedicated inner pages -->
+          <div class="service-card anime-service">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <h3>Website development</h3>
+            <p>Custom high‑performance websites, full‑stack, headless, or classic. Pixel‑perfect responsive.</p>
+            <a href="#" onclick="showServicePage('webdev'); return false;" class="learn-more-btn">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="service-card anime-service">
+            <div class="service-icon"><i class="fas fa-cash-register"></i></div>
+            <h3>Point of sales</h3>
+            <p>Modern POS systems for retail, cafes, restaurants. Offline‑first, cloud sync, analytics.</p>
+            <a href="#" onclick="showServicePage('pos'); return false;" class="learn-more-btn">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="service-card anime-service">
+            <div class="service-icon"><i class="fas fa-cloud"></i></div>
+            <h3>Software as a Service</h3>
+            <p>Scalable SaaS platforms, subscription management, API‑ready, with admin dashboards.</p>
+            <a href="#" onclick="showServicePage('saas'); return false;" class="learn-more-btn">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="service-card anime-service">
+            <div class="service-icon"><i class="fas fa-cart-shopping"></i></div>
+            <h3>E‑commerce websites</h3>
+            <p>Shopify, WooCommerce, custom stores. Fast checkout, secure payment, EmailJS automation.</p>
+            <a href="#" onclick="showServicePage('ecom'); return false;" class="learn-more-btn">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="service-card anime-service">
+            <div class="service-icon"><i class="fas fa-users"></i></div>
+            <h3>Client relationship management</h3>
+            <p>Tailored CRM systems, lead tracking, pipeline automation, email integration.</p>
+            <a href="#" onclick="showServicePage('crm'); return false;" class="learn-more-btn">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="service-card anime-service">
+            <div class="service-icon"><i class="fas fa-cubes"></i></div>
+            <h3>Web applications</h3>
+            <p>Dynamic web apps, real‑time features, collaborative tools, progressive web apps.</p>
+            <a href="#" onclick="showServicePage('webapp'); return false;" class="learn-more-btn">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="service-card anime-service">
+            <div class="service-icon"><i class="fas fa-globe"></i></div>
+            <h3>All types of websites</h3>
+            <p>Portfolio, business, blog, landing pages, corporate – iconic design, moder UI.</p>
+            <a href="#" onclick="showServicePage('alltypes'); return false;" class="learn-more-btn">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="service-card anime-service">
+            <div class="service-icon"><i class="fas fa-window-maximize"></i></div>
+            <h3>Web forms</h3>
+            <p>Smart forms with EmailJS, file uploads, conditional logic, automated replies.</p>
+            <a href="#" onclick="showServicePage('webforms'); return false;" class="learn-more-btn">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK SHOWCASE 100vh -->
+      <section id="work">
+        <h2 class="section-title">iconic <span>showcase</span></h2>
+        <div class="showcase-grid">
+          <div class="project-card anime-project">
+            <div class="project-icon"><i class="fas fa-globe"></i></div>
+            <h4>Nova universe</h4>
+            <p>3D portfolio with auto‑email onboarding · 10k+ users</p>
+            <span class="project-tag">moder ui/ux</span>
+          </div>
+          <div class="project-card anime-project">
+            <div class="project-icon"><i class="fas fa-robot"></i></div>
+            <h4>AI assistant</h4>
+            <p>chat interface with EmailJS lead capture & auto-reply</p>
+            <span class="project-tag">smart form</span>
+          </div>
+          <div class="project-card anime-project">
+            <div class="project-icon"><i class="fas fa-palette"></i></div>
+            <h4>design system</h4>
+            <p>iconic component library – used by 200+ devs</p>
+            <span class="project-tag">framer + gsap</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS SECTION 100vh -->
+      <section id="process">
+        <div class="process-area">
+          <div class="process-step anime-step">
+            <span class="step-num">01</span>
+            <h3 style="font-size:2rem; margin:0.8rem 0;">vision</h3>
+            <p>we discuss your iconic ideas</p>
+          </div>
+          <div class="process-step anime-step">
+            <span class="step-num">02</span>
+            <h3 style="font-size:2rem; margin:0.8rem 0;">design</h3>
+            <p>moder UI/UX with animation</p>
+          </div>
+          <div class="process-step anime-step">
+            <span class="step-num">03</span>
+            <h3 style="font-size:2rem; margin:0.8rem 0;">develop</h3>
+            <p>100% perfect, email automation</p>
+          </div>
+          <div class="process-step anime-step">
+            <span class="step-num">04</span>
+            <h3 style="font-size:2rem; margin:0.8rem 0;">launch</h3>
+            <p>feel free, continuous support</p>
+          </div>
+        </div>
+        <div class="trust-bar">
+          <div class="trust-item"><i class="fas fa-bolt" style="color:cyan;"></i> 120+ projects</div>
+          <div class="trust-item"><i class="fas fa-face-smile" style="color:#aaffbb;"></i> 100% client freedom</div>
+          <div class="trust-item"><i class="fas fa-envelope-circle-check" style="color:#88ddff;"></i> auto‑reply active</div>
+          <div class="trust-item"><i class="fas fa-infinity" style="color:#ffcc88;"></i> 24/7 iconic vibe</div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION 100vh -->
+      <section id="contact" class="contact-mega" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center;">
+        <div class="contact-flex">
+          <div class="contact-info-block">
+            <h2 style="font-size: 3.4rem;"><span style="-webkit-text-stroke:2px cyan; color:transparent;">feel</span> free</h2>
+            <p style="font-size:1.4rem; font-weight:300; margin-bottom:2rem;">Your details will arrive in my inbox, and an automated confirmation lands in yours — perfect communication.</p>
+            <div class="info-line"><i class="fas fa-envelope" style="color:cyan; font-size:1.8rem;"></i> dev@novacore.space</div>
+            <div class="info-line"><i class="fas fa-map-pin" style="color:cyan; font-size:1.8rem;"></i> global · remote ready</div>
+            <div class="info-line"><i class="fas fa-clock" style="color:cyan; font-size:1.8rem;"></i> reply within 2h</div>
+          </div>
+          <div class="form-block">
+            <form id="portfolioContactForm">
+              <div class="input-field">
+                <label>full name</label>
+                <input type="text" name="from_name" id="from_name" placeholder="e.g., Morgan Chen" required>
+              </div>
+              <div class="input-field">
+                <label>email address</label>
+                <input type="email" name="email" id="email" placeholder="client@company.com" required>
+              </div>
+              <div class="input-field">
+                <label>project / message</label>
+                <textarea name="message" id="message" placeholder="I need an iconic website with moder UI and EmailJS automation..." required></textarea>
+              </div>
+              <button type="submit" class="mega-btn"><i class="fas fa-paper-plane"></i> send message</button>
+              <div id="formStatus" class="status-big"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========== 🚀 NEW PROFESSIONAL FOOTER · HOME · SERVICES (ALL LINKS) · SOCIALS · EMAIL & PHONE ========== -->
+      <footer class="footer-professional">
+        <div class="footer-grid">
+          <!-- Column 1: Navigation -->
+          <div class="footer-col">
+            <h4><i class="fas fa-compass" style="color:cyan; margin-right:8px;"></i> Explore</h4>
+            <div class="footer-links">
+              <a href="#" onclick="showMainPage(); return false;"><i class="fas fa-home"></i> Home</a>
+              <a href="#" onclick="showMainPageAndScroll('#services'); return false;"><i class="fas fa-cog"></i> Services</a>
+              <a href="#" onclick="showMainPageAndScroll('#work'); return false;"><i class="fas fa-briefcase"></i> Work</a>
+              <a href="#" onclick="showMainPageAndScroll('#process'); return false;"><i class="fas fa-diagram-project"></i> Process</a>
+              <a href="#" onclick="showMainPageAndScroll('#contact'); return false;"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+          </div>
+          <!-- Column 2: All Services Links (8 iconic services) -->
+          <div class="footer-col">
+            <h4><i class="fas fa-cubes" style="color:cyan;"></i>Services</h4>
+            <div class="service-links-grid footer-links">
+              <a href="#" onclick="showServicePage('webdev'); return false;"><i class="fas fa-code"></i> Web dev</a>
+              <a href="#" onclick="showServicePage('pos'); return false;"><i class="fas fa-cash-register"></i> POS</a>
+              <a href="#" onclick="showServicePage('saas'); return false;"><i class="fas fa-cloud"></i> SaaS</a>
+              <a href="#" onclick="showServicePage('ecom'); return false;"><i class="fas fa-cart-shopping"></i> E‑commerce</a>
+            <a href="#" onclick="showServicePage('crm'); return false;"><i class="fas fa-users"></i> CRM</a> 
+            </div>
+          </div>
+          <!-- Column 3: Contact (email & phone) -->
+           <div class="footer-col">
+            <h4><i class="fas fa-cubes" style="color:cyan;"></i>Services</h4>
+            <div class="service-links-grid footer-links">
+            
+              <a href="#" onclick="showServicePage('webapp'); return false;"><i class="fas fa-cubes"></i> Web apps</a>
+              <a href="#" onclick="showServicePage('alltypes'); return false;"><i class="fas fa-globe"></i> All sites</a>
+              <a href="#" onclick="showServicePage('webforms'); return false;"><i class="fas fa-window-maximize"></i> Web forms</a>
+            <!-- <div class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i> <span>+1 (800) 714‑NOVA</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i> <span>San Francisco / remote</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-clock"></i> <span>Mon‑Fri, 9am–7pm PT</span>
+            </div> -->
+          </div>
+          </div>
+          <!-- Column 4: All Socials + brand -->
+          <div class="footer-col">
+            <h4><i class="fas fa-handshake"></i> Iconic presence</h4>
+            <div class="footer-contact-item">
+              <i class="fas fa-envelope"></i> <span>dev@novacore.space</span>
+            </div>
+        
+            <div class="social-links-footer">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-x-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-discord"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+              <a href="#"><i class="fas fa-paper-plane"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Footer bottom: copyright + signature -->
+        <div class="footer-bottom">
+          <span><i class="fas fa-atom"></i> NOVACORE · individual developer, iconic portfolio. © 2025</span>
+          <span><i class="fas fa-bolt"></i> built with moder UI & EmailJS <i class="fas fa-heart" style="color:cyan;"></i></span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ========== INNER SERVICE PAGES CONTAINER (hidden by default) ========== -->
+  <div id="innerServicePage" style="display: none;">
+    <div class="container" id="innerContent"></div>
+  </div>
+
+  <script>
+    (function() {
+      // --- EmailJS init (REPLACE WITH YOUR PUBLIC KEY) ---
+      emailjs.init('a4vuHJxq4VkksaQJo');  // <-- required: replace with actual public key
+
+      // --- custom cursor ---
+      const cursorBig = document.getElementById('cursorSpot');
+      window.addEventListener('mousemove', (e) => {
+        cursorBig.style.left = e.clientX + 'px';
+        cursorBig.style.top = e.clientY + 'px';
+      });
+
+      // --- FORM HANDLER (admin + auto-reply) ---
+      const form = document.getElementById('portfolioContactForm');
+      const statusMsg = document.getElementById('formStatus');
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          statusMsg.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> connecting to email services...';
+          statusMsg.style.color = '#b3f0ff';
+
+          const fromName = document.getElementById('from_name').value;
+          const replyEmail = document.getElementById('email').value;
+          const userMessage = document.getElementById('message').value;
+
+        const adminParams = {
+  from_name: fromName,
+  email: replyEmail,
+  message: userMessage,
+  to_email: 'harisumer9000@gmail.com',   // Your admin email
+};
+
+const autoReplyParams = {
+  from_name: 'NovaCore team',
+  to_name: fromName,
+  to_email: replyEmail,                  // This sends to the user
+  reply_to: 'harisumer9000@gmail.com',
+  message: userMessage,
+};
+
+          const serviceId = 'service_cr4v0pp';
+          const adminTemplateId = 'template_bepsdzk';
+          const autoTemplateId = 'template_xhvqhl4';
+
+          emailjs.send(serviceId, adminTemplateId, adminParams)
+            .then(function(res) {
+              console.log('✅ admin notified', res);
+              return emailjs.send(serviceId, autoTemplateId, autoReplyParams);
+            })
+            .then(function(res) {
+              console.log('✅ auto-reply sent', res);
+              statusMsg.innerHTML = '<i class="fas fa-circle-check"></i> Done! Your details are sent to the developer, and you’ll receive an automated confirmation soon. Feel free!';
+              statusMsg.style.color = '#b8ffc4';
+              form.reset();
+            })
+            .catch(function(err) {
+              console.error('❌ EmailJS error:', err);
+              statusMsg.innerHTML = '<i class="fas fa-triangle-exclamation"></i> Error: check EmailJS config (public key / service / templates). ' + (err.text || err);
+              statusMsg.style.color = '#ffb3b3';
+            });
+        });
+      }
+
+      // ---------- ANIME.JS · ICONIC ENTRANCE (only on main page load) ----------
+      window.addEventListener('load', function() {
+        if (document.getElementById('mainPageContent').style.display !== 'none') {
+          anime.timeline({ easing: 'easeOutExpo' })
+            .add({
+              targets: '.anime-hero-title',
+              translateY: [80, 0],
+              opacity: [0, 1],
+              duration: 1400,
+            })
+            .add({
+              targets: '.anime-hero-p',
+              translateY: [40, 0],
+              opacity: [0, 1],
+              duration: 1000,
+            }, '-=800')
+            .add({
+              targets: '.glow-btn',
+              scale: [0.8, 1],
+              opacity: [0, 1],
+              duration: 900,
+            }, '-=600')
+            .add({
+              targets: '.anime-card',
+              rotate: ['10deg', '3deg'],
+              opacity: [0, 1],
+              translateY: [50, 0],
+              duration: 1200,
+            }, '-=1000');
+
+          anime({
+            targets: '.anime-service',
+            translateY: [60, 0],
+            opacity: [0, 1],
+            duration: 800,
+            delay: anime.stagger(120, {start: 300}),
+            easing: 'easeOutCubic'
+          });
+          anime({
+            targets: '.anime-project',
+            scale: [0.7, 1],
+            opacity: [0, 1],
+            duration: 700,
+            delay: anime.stagger(100),
+            easing: 'easeOutBack'
+          });
+          anime({
+            targets: '.anime-step',
+            translateX: [-30, 0],
+            opacity: [0, 1],
+            duration: 700,
+            delay: anime.stagger(150),
+            easing: 'easeOutQuad'
+          });
+          anime({
+            targets: '.step-num',
+            scale: [1, 1.08, 1],
+            duration: 2000,
+            loop: true,
+            easing: 'easeInOutSine',
+            delay: anime.stagger(200)
+          });
+          anime({
+            targets: '.code-card',
+            translateY: [0, -15, 0],
+            duration: 6000,
+            loop: true,
+            easing: 'easeInOutQuad'
+          });
+        }
+      });
+
+      // ---------- STICKY NAV SHRINK ----------
+      const nav = document.getElementById('mainNav');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 25) nav.classList.add('nav-shrink');
+        else nav.classList.remove('nav-shrink');
+      });
+
+      // ---------- TOGGLE BUTTON for mobile menu ----------
+      const toggleBtn = document.getElementById('navToggleBtn');
+      const navLinks = document.getElementById('navLinks');
+      toggleBtn.addEventListener('click', function(e){
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+        const icon = toggleBtn.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('active');
+          const icon = toggleBtn.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        });
+      });
+      window.addEventListener('click', function(event) {
+        if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          const icon = toggleBtn.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+
+      // ---------- SERVICE PAGES DATA (8 inner pages) ----------
+      const serviceData = {
+        webdev: { title: 'Website development', desc: 'Full‑cycle website development: from concept to deployment. We build blazing fast, SEO‑optimized, and responsive websites with modern stacks (React, Vue, Node, headless CMS). Perfect for startups and enterprises.', features: ['Custom front‑end/back‑end', 'CMS integration (Sanity, WordPress)', 'Performance scoring 95+ Lighthouse', 'Ongoing maintenance'] },
+        pos: { title: 'Point of sales', desc: 'Iconic POS systems for physical and online stores. Manage inventory, process payments, and gain insights. Offline mode + real‑time cloud sync.', features: ['Intuitive dashboard', 'Payment gateway integration', 'Stock alerts', 'Sales analytics'] },
+        saas: { title: 'Software as a Service', desc: 'Build your SaaS idea with scalable architecture. Subscription handling, user authentication, API development, and beautiful admin panels.', features: ['Multi‑tenancy', 'Stripe / PayPal integration', 'Analytics & reporting', 'Onboarding flows'] },
+        ecom: { title: 'E‑commerce websites', desc: 'Launch a powerful online store. Custom product catalogs, secure checkout, abandoned cart recovery, and automated email confirmations.', features: ['Product variants', 'Smart search', 'Mobile‑optimized', 'Email automation'] },
+        crm: { title: 'Client relationship management', desc: 'CRM tailored to your workflow. Manage leads, contacts, deals, and tasks. Automate follow‑ups and email sequences.', features: ['Lead scoring', 'Communication history', 'Task automation', 'Custom fields'] },
+        webapp: { title: 'Web applications', desc: 'Dynamic, data‑driven web apps. Real‑time collaboration, dashboards, and complex business logic – delivered with moder UI.', features: ['Real‑time updates', 'Interactive charts', 'User roles', 'Third‑party APIs'] },
+        alltypes: { title: 'All types of websites', desc: 'Portfolio, landing page, corporate, blog, nonprofit, festival – any vision. We craft iconic, memorable web experiences.', features: ['Unique design', 'Fast loading', 'Conversion focused', 'Easy content update'] },
+        webforms: { title: 'Web forms & automation', desc: 'Advanced forms with conditional logic, file uploads, and EmailJS. Auto‑responders, Slack/email notifications, and CRM integration.', features: ['Drag‑drop builder', 'EmailJS auto‑reply', 'Spam protection', 'Webhook support'] }
+      };
+
+      // ---------- FUNCTIONS TO SHOW/HIDE PAGES ----------
+      window.showMainPage = function() {
+        document.getElementById('mainPageContent').style.display = 'block';
+        document.getElementById('innerServicePage').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+      window.showMainPageAndScroll = function(sectionId) {
+        showMainPage();
+        setTimeout(() => {
+          document.querySelector(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      };
+
+      window.showServicePage = function(serviceKey) {
+        const data = serviceData[serviceKey];
+        if (!data) return;
+        let featureHTML = '';
+        data.features.forEach(f => {
+          featureHTML += `<div class="feature-item"><i class="fas fa-check-circle" style="color:cyan; margin-right:12px;"></i> ${f}</div>`;
+        });
+        const innerHtml = `
+          <div class="inner-service-hero">
+            <span class="hero-badge"><i class="fas fa-microchip"></i> NOVACORE SERVICE</span>
+            <h1 class="inner-title">${data.title}</h1>
+            <p class="inner-desc">${data.desc}</p>
+            <a href="#" onclick="showMainPageAndScroll('#contact'); return false;" class="glow-btn" style="margin-top:20px;"><i class="fas fa-paper-plane"></i> start this service</a>
+          </div>
+          <div class="inner-features">
+            ${featureHTML}
+          </div>
+          <section id="contact-inner" class="contact-mega" style="margin-top:3rem; min-height:auto;">
+            <div class="contact-flex">
+              <div class="contact-info-block">
+                <h2 style="font-size: 3rem;"><span style="-webkit-text-stroke:2px cyan; color:transparent;">feel</span> free</h2>
+                <p style="font-size:1.2rem;">Get in touch — same auto‑reply magic.</p>
+                <div class="info-line"><i class="fas fa-envelope" style="color:cyan;"></i> dev@novacore.space</div>
+              </div>
+              <div class="form-block">
+                <form id="innerContactForm">
+                  <div class="input-field"><label>full name</label><input type="text" id="inner_name" placeholder="Your name" required></div>
+                  <div class="input-field"><label>email address</label><input type="email" id="inner_email" placeholder="client@company.com" required></div>
+                  <div class="input-field"><label>message / ${data.title}</label><textarea id="inner_message" placeholder="Tell me about your ${data.title} project..." required></textarea></div>
+                  <button type="submit" class="mega-btn"><i class="fas fa-paper-plane"></i> send</button>
+                  <div id="innerFormStatus" class="status-big"></div>
+                </form>
+              </div>
+            </div>
+          </section>
+        <footer class="footer-professional">
+        <div class="footer-grid">
+          <!-- Column 1: Navigation -->
+          <div class="footer-col">
+            <h4><i class="fas fa-compass" style="color:cyan; margin-right:8px;"></i> Explore</h4>
+            <div class="footer-links">
+              <a href="#" onclick="showMainPage(); return false;"><i class="fas fa-home"></i> Home</a>
+              <a href="#" onclick="showMainPageAndScroll('#services'); return false;"><i class="fas fa-cog"></i> Services</a>
+              <a href="#" onclick="showMainPageAndScroll('#work'); return false;"><i class="fas fa-briefcase"></i> Work</a>
+              <a href="#" onclick="showMainPageAndScroll('#process'); return false;"><i class="fas fa-diagram-project"></i> Process</a>
+              <a href="#" onclick="showMainPageAndScroll('#contact'); return false;"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+          </div>
+          <!-- Column 2: All Services Links (8 iconic services) -->
+          <div class="footer-col">
+            <h4><i class="fas fa-cubes" style="color:cyan;"></i>Services</h4>
+            <div class="service-links-grid footer-links">
+              <a href="#" onclick="showServicePage('webdev'); return false;"><i class="fas fa-code"></i> Web dev</a>
+              <a href="#" onclick="showServicePage('pos'); return false;"><i class="fas fa-cash-register"></i> POS</a>
+              <a href="#" onclick="showServicePage('saas'); return false;"><i class="fas fa-cloud"></i> SaaS</a>
+              <a href="#" onclick="showServicePage('ecom'); return false;"><i class="fas fa-cart-shopping"></i> E‑commerce</a>
+            <a href="#" onclick="showServicePage('crm'); return false;"><i class="fas fa-users"></i> CRM</a> 
+            </div>
+          </div>
+          <!-- Column 3: Contact (email & phone) -->
+           <div class="footer-col">
+            <h4><i class="fas fa-cubes" style="color:cyan;"></i>Services</h4>
+            <div class="service-links-grid footer-links">
+            
+              <a href="#" onclick="showServicePage('webapp'); return false;"><i class="fas fa-cubes"></i> Web apps</a>
+              <a href="#" onclick="showServicePage('alltypes'); return false;"><i class="fas fa-globe"></i> All sites</a>
+              <a href="#" onclick="showServicePage('webforms'); return false;"><i class="fas fa-window-maximize"></i> Web forms</a>
+            <!-- <div class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i> <span>+1 (800) 714‑NOVA</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i> <span>San Francisco / remote</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-clock"></i> <span>Mon‑Fri, 9am–7pm PT</span>
+            </div> -->
+          </div>
+          </div>
+          <!-- Column 4: All Socials + brand -->
+          <div class="footer-col">
+            <h4><i class="fas fa-handshake"></i> Iconic presence</h4>
+            <div class="footer-contact-item">
+              <i class="fas fa-envelope"></i> <span>dev@novacore.space</span>
+            </div>
+        
+            <div class="social-links-footer">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-x-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-discord"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+              <a href="#"><i class="fas fa-paper-plane"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Footer bottom: copyright + signature -->
+        <div class="footer-bottom">
+          <span><i class="fas fa-atom"></i> NOVACORE · individual developer, iconic portfolio. © 2025</span>
+          <span><i class="fas fa-bolt"></i> built with moder UI & EmailJS <i class="fas fa-heart" style="color:cyan;"></i></span>
+        </div>
+      </footer>
+        `;
+        document.getElementById('innerContent').innerHTML = innerHtml;
+        document.getElementById('mainPageContent').style.display = 'none';
+        document.getElementById('innerServicePage').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        const innerForm = document.getElementById('innerContactForm');
+        if (innerForm) {
+          innerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const statusInner = document.getElementById('innerFormStatus');
+            statusInner.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> sending...';
+            const name = document.getElementById('inner_name').value;
+            const email = document.getElementById('inner_email').value;
+            const msg = document.getElementById('inner_message').value;
+            emailjs.send('service_cr4v0pp', 'template_bepsdzk', { from_name: name, email: email, message: msg, to_email: 'harisumer9000@gmail.com' })
+              .then(() => {
+                statusInner.innerHTML = '<i class="fas fa-circle-check"></i> Message sent! Auto‑reply on the way.';
+                statusInner.style.color = '#b8ffc4';
+                innerForm.reset();
+              })
+              .catch(err => { statusInner.innerHTML = 'error: ' + err; });
+          });
+        }
+      };
+    })();
+  </script>
+  <!-- reminder: replace EmailJS keys & email addresses -->
+</body>
+</html>
