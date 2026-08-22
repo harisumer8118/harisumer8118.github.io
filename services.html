@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('theme');
+    var theme = saved || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {}
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Services | Haris Umer</title>
+<meta name="description" content="Full-stack development services: SaaS platforms, CRM & ERP systems, e-commerce, API development, cloud deployment and ongoing maintenance.">
+<meta name="keywords" content="web development services, SaaS development services, CRM ERP development, e-commerce development, API development, cloud deployment, DevOps services">
+<meta name="author" content="Haris Umer">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#16181c">
+<link rel="canonical" href="https://harisumer.me/services">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Haris Umer">
+<meta property="og:url" content="https://harisumer.me/services">
+<meta property="og:title" content="Services | Haris Umer">
+<meta property="og:description" content="Full-stack development services: SaaS platforms, CRM & ERP systems, e-commerce, API development, cloud deployment and ongoing maintenance.">
+<meta property="og:image" content="https://harisumer.me/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Haris Umer - Business Systems Engineer">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://harisumer.me/services">
+<meta name="twitter:title" content="Services | Haris Umer">
+<meta name="twitter:description" content="Full-stack development services: SaaS platforms, CRM & ERP systems, e-commerce, API development, cloud deployment and ongoing maintenance.">
+<meta name="twitter:image" content="https://harisumer.me/assets/images/og-image.png">
+<meta name="twitter:image:alt" content="Haris Umer - Business Systems Engineer">
+
+<!-- Icons -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/images/logo-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="assets/images/logo-512.png">
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Haris Umer",
+  "url": "https://harisumer.me/",
+  "image": "https://harisumer.me/assets/images/logo-512.png",
+  "jobTitle": "Business Systems Engineer / Full-Stack Developer",
+  "description": "Full-stack developer building production-ready SaaS platforms, POS systems, CRMs and e-commerce applications.",
+  "email": "mailto:contact@harisumer.me",
+  "telephone": "+923336070594",
+  "sameAs": [
+    "https://github.com/harisumer8118",
+    "https://linkedin.com/in/haris-umer-ba3521279",
+    "https://www.facebook.com/profile.php?id=100092946462162",
+    "https://www.instagram.com/harisumer16/"
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="/">
+      <img class="logo-badge" src="assets/images/logo.svg" width="40" height="40" alt="Haris Umer logo" loading="eager">
+      <span class="logo-word">Haris Umer</span>
+    </a>
+    <div class="nav-controls">
+      <div class="theme-toggle-wrap">
+        <span class="bracket">&lt;</span>
+        <button type="button" class="theme-toggle" id="themeToggle" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+          <span class="toggle-thumb"></span>
+        </button>
+        <span class="bracket">&gt;</span>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="links" id="primaryNav">
+      <div class="page-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services" class="active">Services</a>
+        <a href="/work">Work</a>
+      </div>
+      <a class="btn sky nav-cta" href="/contact">Let's Talk</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="hero-badge-wrap animate-once">
+      <div class="badge code-badge">
+        <span class="prompt" aria-hidden="true">&gt;</span><span class="code-line" id="codeLine" aria-hidden="true"></span><span class="caret" aria-hidden="true">|</span>
+      </div>
+      <span class="sr-only">Available for new projects</span>
+    </div>
+    <h1>Everything it takes to ship a business system</h1>
+    <p class="lead">From the first line of backend logic to the server it runs on, here's what I build, and how I keep it running afterward.</p>
+  </div>
+</section>
+
+<!-- ===== DESIGN (Front-End Design & Development) ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-label-col animate-once">
+        <h2 class="section-title">Design</h2>
+      </div>
+      <div class="split-content-col">
+        <p class="split-lead as-heading" style="margin-bottom:18px;">Front-end design and development, the part of the product people actually see, click and trust.</p>
+        <p class="split-lead" style="margin-bottom:30px;">Alongside the backend systems I build, I also design and develop the front end itself: the interfaces, layouts and pages your users and customers interact with every day. That covers everything from marketing websites to the screens inside a full web application, and it includes building on WordPress, Wix or Webflow when that's the right platform for the job.</p>
+      </div>
+      
+    </div>
+     <div class="services-grid stagger-children">
+          <div class="service-card featured">
+            <div class="icon"><i class="fa-solid fa-window-restore" aria-hidden="true"></i></div>
+            <h3>Front-End Interfaces for Websites</h3>
+            <p>I design and build the front end of business and marketing websites, homepages, landing pages, service pages and everything in between, with layouts that are clean, on-brand and easy for visitors to navigate on any device.</p>
+          </div>
+          <div class="service-card featured">
+            <div class="icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></div>
+            <h3>Front-End Interfaces for Web Applications</h3>
+            <p>For SaaS platforms, dashboards, CRMs and other web apps, I design and build the screens users actually work in, forms, tables, dashboards and workflows that stay clear and usable even as the product grows more complex.</p>
+          </div>
+          <div class="service-card featured">
+            <div class="icon"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
+            <h3>Beautiful, Modern Website Design</h3>
+            <p>Every site is designed to look current and professional, not templated, thoughtful typography, spacing and visual hierarchy that reflect well on your business and build trust with visitors from the first scroll.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-brands fa-wordpress" aria-hidden="true"></i></div>
+            <h3>WordPress Website Design &amp; Development</h3>
+            <p>Custom WordPress builds, theme design, page layouts, plugin setup and WooCommerce integration where needed, giving you a professional site that's still easy to update yourself after launch.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-brands fa-wix" aria-hidden="true"></i></div>
+            <h3>Wix Website Design &amp; Development</h3>
+            <p>Custom-designed Wix websites for businesses that want a polished, professional site on a platform that's simple to manage day-to-day, without sacrificing on design quality.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
+            <h3>Webflow Website Design &amp; Development</h3>
+            <p>Fully custom, responsive Webflow builds, combining designer-level visual control with clean, production-ready front-end code underneath.</p>
+          </div>
+        </div>
+
+        <div class="design-process-box">
+          <h3>Our design &amp; build process</h3>
+          <p>We follow the same straightforward process on every front-end project:</p>
+          <ol class="design-process-list">
+            <li><strong>Design first.</strong> We create and design the website according to your requirements, structure, layout, style and content, before any development begins.</li>
+            <li><strong>Client approval.</strong> The design is presented to you for review, and nothing moves forward until you've confirmed you're happy with the direction.</li>
+            <li><strong>Build the real thing.</strong> Once the design is approved, we convert it into a fully functional, responsive website or interface, built to match the approved design pixel for pixel and to work cleanly across desktop, tablet and mobile.</li>
+          </ol>
+          <p style="margin-top:16px;">We manage the complete process from start to finish, design, development, revisions, communication with you at every step, and every other detail in between, so you get a high-quality result without having to coordinate multiple people or vendors yourself.</p>
+        </div>
+  </div>
+</section>
+
+<!-- ===== BUILD ===== -->
+<section class="section on-cream">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-label-col animate-once">
+        <h2 class="section-title">Build</h2>
+      </div>
+      <div class="split-content-col">
+        <p class="split-lead as-heading" style="margin-bottom:30px;">Core platforms, the systems your business runs on day to day.</p>
+        
+      </div>
+    </div>
+    <div class="services-grid stagger-children">
+          <div class="service-card featured">
+            <div class="icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
+            <h3>SaaS &amp; Custom Dashboards</h3>
+            <p>Multi-tenant platforms, admin panels and analytics dashboards built to scale.</p>
+          </div>
+          <div class="service-card featured">
+            <div class="icon"><i class="fa-solid fa-cloud" aria-hidden="true"></i></div>
+            <h3>Cloud Deployment &amp; DevOps</h3>
+            <p>Server setup, CI pipelines and monitoring so releases go out cleanly.</p>
+          </div>
+          <div class="service-card featured">
+            <div class="icon"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
+            <h3>Database Design &amp; Optimization</h3>
+            <p>Schemas built for the queries you'll actually run, not just the demo.</p>
+          </div>
+        </div>
+  </div>
+</section>
+
+<!-- ===== BUSINESS SYSTEMS ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-label-col animate-once">
+        <h2 class="section-title">Run</h2>
+      </div>
+      <div class="split-content-col">
+        <p class="split-lead as-heading" style="margin-bottom:30px;">Business systems that keep operations moving.</p>
+        
+      </div>
+    </div>
+    <div class="services-grid stagger-children">
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-users-gear" aria-hidden="true"></i></div>
+            <h3>CRM &amp; ERP Systems</h3>
+            <p>Lead tracking, customer records and workflows in one connected place.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></div>
+            <h3>Booking &amp; Reservation Platforms</h3>
+            <p>Scheduling systems with availability, confirmations and reminders handled automatically.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+            <h3>Inventory Management</h3>
+            <p>Stock tracking that stays accurate across sales channels and locations.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></div>
+            <h3>API Development &amp; Integration</h3>
+            <p>Clean, documented REST APIs connecting your apps and third-party services.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
+            <h3>Custom E-Commerce Platforms</h3>
+            <p>Storefronts built around your catalog and checkout flow, not a generic template.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-brands fa-wordpress" aria-hidden="true"></i></div>
+            <h3>WooCommerce Development</h3>
+            <p>Custom themes, plugins and integrations on top of WordPress and WooCommerce.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div>
+            <h3>Performance Optimization</h3>
+            <p>Faster load times and leaner queries, measured, not guessed at.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></div>
+            <h3>Conversion-Focused Websites</h3>
+            <p>Marketing sites built around a clear path to the action you want visitors to take.</p>
+          </div>
+        </div>
+  </div>
+</section>
+
+<!-- ===== SUPPORT ===== -->
+<section class="section on-cream">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-label-col animate-once">
+        <h2 class="section-title">Support</h2>
+      </div>
+      <div class="split-content-col">
+        <p class="split-lead as-heading" style="margin-bottom:30px;">Once it's live, the work doesn't stop.</p>
+       
+      </div>
+    </div>
+     <div class="services-grid stagger-children">
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+            <h3>Security Monitoring</h3>
+            <p>Ongoing checks to catch vulnerabilities before they become problems.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-rotate" aria-hidden="true"></i></div>
+            <h3>Updates &amp; Backups</h3>
+            <p>Regular updates and backups so nothing's ever one bad deploy away from lost data.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
+            <h3>Technical Support</h3>
+            <p>A direct line for fixes, questions and small changes as your business grows.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon"><i class="fa-solid fa-toolbox" aria-hidden="true"></i></div>
+            <h3>Complete Maintenance</h3>
+            <p>Full ongoing coverage, updates, monitoring and support bundled into one plan.</p>
+          </div>
+        </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="section on-gray">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-label-col animate-once">
+        <h2 class="section-title">How it runs</h2>
+      </div>
+      <div class="split-content-col">
+        <p class="split-lead as-heading">A straightforward process, start to finish.</p>
+      </div>
+    </div>
+    <div class="process-grid stagger-children" style="margin-top:36px;">
+      <div class="process-step"><span class="n">01</span><h3>Discover</h3><p>Understand the workflow, the users, and the real goal.</p></div>
+      <div class="process-step"><span class="n">02</span><h3>Design</h3><p>Wireframe the structure and data model before writing code.</p></div>
+      <div class="process-step"><span class="n">03</span><h3>Develop</h3><p>Build in focused iterations you can review as we go.</p></div>
+      <div class="process-step"><span class="n">04</span><h3>Deploy &amp; Support</h3><p>Ship to production, then stay on for updates and fixes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="eyebrow">Let's build something</div>
+    <h2>Not sure which service fits?</h2>
+    <p>Tell me what you're trying to solve and I'll suggest the right approach, no pressure, no obligation.</p>
+    <a class="btn sky" href="/contact">Start a Conversation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a class="logo" href="/">
+          <img class="logo-badge" src="assets/images/logo.svg" width="40" height="40" alt="Haris Umer logo" loading="eager">
+          <span class="logo-word" style="color:#fff;">Haris Umer</span>
+        </a>
+        <p>Independent developer building web applications, POS, SaaS and e-commerce systems clients rely on.</p>
+        <div class="social-row">
+          <a href="https://github.com/harisumer8118" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          <a href="https://linkedin.com/in/haris-umer-ba3521279" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100092946462162" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/harisumer16/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://wa.me/923336070594" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Navigation</h6>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/work">Work</a>
+      </div>
+      <div class="footer-col">
+        <h6>Connect</h6>
+        <a href="mailto:contact@harisumer.me">contact@harisumer.me</a>
+        <a href="tel:+923336070594">+92 333 6070594</a>
+        <a href="/contact">Send a message</a>
+      </div>
+      <div class="footer-col">
+        <h6>Availability</h6>
+        <p>Global · remote ready</p>
+        <p>Instant replies</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Haris Umer. All rights reserved.</span>
+      <span>Built with care, line by line.</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ===== LET'S TALK POPUP (slide-in form) ===== -->
+<div class="talk-popup-overlay" id="talkPopupOverlay"></div>
+<aside class="talk-popup" id="talkPopup" aria-hidden="true">
+  <button type="button" class="talk-popup-close" id="talkPopupClose" aria-label="Close contact form">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <div class="talk-popup-inner">
+    <div class="eyebrow" style="color:#8a8f97;">Send a message</div>
+    <h2>Let's build something amazing together</h2>
+    <p class="talk-popup-lead">Send over a few details about your project and I'll reply instantly, no automated runaround.</p>
+    <form id="talkPopupForm">
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-name">Your Name</label>
+        <input id="talk-name" type="text" data-field="name" placeholder="e.g., Morgan Chen" required>
+      </div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-email">Email Address</label>
+        <input id="talk-email" type="email" data-field="email" placeholder="client@company.com" required>
+      </div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-phone">Phone</label>
+        <input id="talk-phone" type="tel" data-field="phone" placeholder="+92 300 1234567">
+      </div>
+      <div class="form-field" style="margin-bottom:20px;">
+        <label for="talk-message">Project / Message</label>
+        <textarea id="talk-message" rows="5" data-field="message" placeholder="I need a system that handles..." required></textarea>
+      </div>
+      <button type="submit" class="btn sky block">Send Message</button>
+      <p class="form-status" style="font-size:12.5px; color:#8a8f97; margin-top:12px;"></p>
+    </form>
+  </div>
+</aside>
+
+<!-- ===== SUCCESS POPUP (shown after a message is sent) ===== -->
+<div class="success-popup-overlay" id="successPopupOverlay"></div>
+<div class="success-popup" id="successPopup" role="alertdialog" aria-hidden="true">
+  <button type="button" class="success-popup-close" id="successPopupClose" aria-label="Close">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <div class="success-popup-icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
+  <h2>Message Sent!</h2>
+  <p>Thanks for reaching out, your message has been sent successfully.</p>
+</div>
+
+<script src="assets/nav.js"></script>
+<script src="assets/theme.js"></script>
+<script src="assets/badge.js"></script>
+</body>
+</html>

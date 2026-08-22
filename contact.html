@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('theme');
+    var theme = saved || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {}
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact | Haris Umer</title>
+<meta name="description" content="Get in touch with Haris Umer to discuss a SaaS platform, POS system, CRM or e-commerce project. Usually replies instantly.">
+<meta name="keywords" content="contact Haris Umer, hire full-stack developer, hire Laravel developer, software project inquiry">
+<meta name="author" content="Haris Umer">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#16181c">
+<link rel="canonical" href="https://harisumer.me/contact">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Haris Umer">
+<meta property="og:url" content="https://harisumer.me/contact">
+<meta property="og:title" content="Contact | Haris Umer">
+<meta property="og:description" content="Get in touch with Haris Umer to discuss a SaaS platform, POS system, CRM or e-commerce project. Usually replies instantly.">
+<meta property="og:image" content="https://harisumer.me/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Haris Umer - Business Systems Engineer">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://harisumer.me/contact">
+<meta name="twitter:title" content="Contact | Haris Umer">
+<meta name="twitter:description" content="Get in touch with Haris Umer to discuss a SaaS platform, POS system, CRM or e-commerce project. Usually replies instantly.">
+<meta name="twitter:image" content="https://harisumer.me/assets/images/og-image.png">
+<meta name="twitter:image:alt" content="Haris Umer - Business Systems Engineer">
+
+<!-- Icons -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/images/logo-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="assets/images/logo-512.png">
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Haris Umer",
+  "url": "https://harisumer.me/",
+  "image": "https://harisumer.me/assets/images/logo-512.png",
+  "jobTitle": "Business Systems Engineer / Full-Stack Developer",
+  "description": "Full-stack developer building production-ready SaaS platforms, POS systems, CRMs and e-commerce applications.",
+  "email": "mailto:contact@harisumer.me",
+  "telephone": "+923336070594",
+  "sameAs": [
+    "https://github.com/harisumer8118",
+    "https://linkedin.com/in/haris-umer-ba3521279",
+    "https://www.facebook.com/profile.php?id=100092946462162",
+    "https://www.instagram.com/harisumer16/"
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="/">
+      <img class="logo-badge" src="assets/images/logo.svg" width="40" height="40" alt="Haris Umer logo" loading="eager">
+      <span class="logo-word">Haris Umer</span>
+    </a>
+    <div class="nav-controls">
+      <div class="theme-toggle-wrap">
+        <span class="bracket">&lt;</span>
+        <button type="button" class="theme-toggle" id="themeToggle" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+          <span class="toggle-thumb"></span>
+        </button>
+        <span class="bracket">&gt;</span>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="links" id="primaryNav">
+      <div class="page-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/work">Work</a>
+      </div>
+      <a class="btn sky nav-cta active" href="/contact">Let's Talk</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero" style="padding-bottom:20px;">
+  <div class="wrap">
+    <div class="hero-badge-wrap animate-once">
+      <div class="badge code-badge">
+        <span class="prompt" aria-hidden="true">&gt;</span><span class="code-line" id="codeLine" aria-hidden="true"></span><span class="caret" aria-hidden="true">|</span>
+      </div>
+      <span class="sr-only">Available for new projects</span>
+    </div>
+    <h1>Let's build something amazing together</h1>
+    <p class="lead">Send over a few details about your project and I'll reply instantly, no automated runaround.</p>
+  </div>
+</section>
+
+<!-- ===== CONTACT FORM ===== -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="contact-grid stagger-children">
+      <div class="contact-form-card">
+        <div>
+          <div class="eyebrow" style="color:#8a8f97;">Send a message</div>
+          <h2 style="color:#fff; font-size:22px; margin:0;">Tell me about your project</h2>
+        </div>
+        <form id="contactForm">
+          <div class="form-field" style="margin-bottom:16px;">
+            <label for="name">Your Name</label>
+            <input id="name" type="text" data-field="name" placeholder="e.g., Morgan Chen" required>
+          </div>
+          <div class="form-field" style="margin-bottom:16px;">
+            <label for="email">Email Address</label>
+            <input id="email" type="email" data-field="email" placeholder="client@company.com" required>
+          </div>
+          <div class="form-field" style="margin-bottom:16px;">
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" data-field="phone" placeholder="+92 300 1234567">
+          </div>
+          <div class="form-field" style="margin-bottom:20px;">
+            <label for="message">Project / Message</label>
+            <textarea id="message" rows="5" data-field="message" placeholder="I need a system that handles..." required></textarea>
+          </div>
+          <button type="submit" class="btn sky block">Send Message</button>
+          <p class="form-status" style="font-size:12.5px; color:#8a8f97; margin-top:12px;"></p>
+        </form>
+      </div>
+
+      <div class="contact-side">
+        <div>
+          <div class="eyebrow">Prefer a direct line?</div>
+          <h3>Reach out on WhatsApp or email, whichever's easier for you.</h3>
+          <span class="pill">instant reply</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a class="btn light block" href="https://wa.me/923336070594" target="_blank" rel="noopener" style="text-align:center;">Message on WhatsApp</a>
+          <a class="btn ghost block" href="mailto:contact@harisumer.me" style="text-align:center;">Email Directly</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="details-grid stagger-children">
+      <div class="detail-card">
+        <div class="icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
+        <div class="eyebrow">Email</div>
+        <a href="mailto:contact@harisumer.me" class="value">contact@harisumer.me</a>
+      </div>
+      <div class="detail-card">
+        <div class="icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
+        <div class="eyebrow">Phone</div>
+        <a href="tel:+923336070594" class="value">+92 333 6070594</a>
+      </div>
+      <div class="detail-card">
+        <div class="icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+        <div class="eyebrow">Location</div>
+        <span class="value">Global · Remote Ready</span>
+      </div>
+      <div class="detail-card">
+        <div class="icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></div>
+        <div class="eyebrow">Response Time</div>
+        <span class="value">Instant</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL ===== -->
+<section class="section tight on-cream">
+  <div class="wrap center">
+    <div class="eyebrow">Find me elsewhere</div>
+    <h2 class="section-title" style="margin-bottom:26px;">Connect on your platform of choice</h2>
+    <div class="social-row" style="justify-content:center; display:inline-flex;">
+      <a href="https://github.com/harisumer8118" target="_blank" rel="noopener" style="background:var(--card); color:var(--ink);" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+      <a href="https://linkedin.com/in/haris-umer-ba3521279" target="_blank" rel="noopener" style="background:var(--card); color:var(--ink);" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100092946462162" target="_blank" rel="noopener" style="background:var(--card); color:var(--ink);" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+      <a href="https://www.instagram.com/harisumer16/" target="_blank" rel="noopener" style="background:var(--card); color:var(--ink);" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+      <a href="https://wa.me/923336070594" target="_blank" rel="noopener" style="background:var(--card); color:var(--ink);" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a class="logo" href="/">
+          <img class="logo-badge" src="assets/images/logo.svg" width="40" height="40" alt="Haris Umer logo" loading="eager">
+          <span class="logo-word" style="color:#fff;">Haris Umer</span>
+        </a>
+        <p>Independent developer building web applications, POS, SaaS and e-commerce systems clients rely on.</p>
+        <div class="social-row">
+          <a href="https://github.com/harisumer8118" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          <a href="https://linkedin.com/in/haris-umer-ba3521279" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100092946462162" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/harisumer16/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://wa.me/923336070594" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Navigation</h6>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/work">Work</a>
+      </div>
+      <div class="footer-col">
+        <h6>Connect</h6>
+        <a href="mailto:contact@harisumer.me">contact@harisumer.me</a>
+        <a href="tel:+923336070594">+92 333 6070594</a>
+        <a href="/contact">Send a message</a>
+      </div>
+      <div class="footer-col">
+        <h6>Availability</h6>
+        <p>Global · remote ready</p>
+        <p>Instant replies</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Haris Umer. All rights reserved.</span>
+      <span>Built with care, line by line.</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ===== LET'S TALK POPUP (slide-in form) ===== -->
+<div class="talk-popup-overlay" id="talkPopupOverlay"></div>
+<aside class="talk-popup" id="talkPopup" aria-hidden="true">
+  <button type="button" class="talk-popup-close" id="talkPopupClose" aria-label="Close contact form">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <div class="talk-popup-inner">
+    <div class="eyebrow" style="color:#8a8f97;">Send a message</div>
+    <h2>Let's build something amazing together</h2>
+    <p class="talk-popup-lead">Send over a few details about your project and I'll reply instantly, no automated runaround.</p>
+    <form id="talkPopupForm">
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-name">Your Name</label>
+        <input id="talk-name" type="text" data-field="name" placeholder="e.g., Morgan Chen" required>
+      </div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-email">Email Address</label>
+        <input id="talk-email" type="email" data-field="email" placeholder="client@company.com" required>
+      </div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-phone">Phone</label>
+        <input id="talk-phone" type="tel" data-field="phone" placeholder="+92 300 1234567">
+      </div>
+      <div class="form-field" style="margin-bottom:20px;">
+        <label for="talk-message">Project / Message</label>
+        <textarea id="talk-message" rows="5" data-field="message" placeholder="I need a system that handles..." required></textarea>
+      </div>
+      <button type="submit" class="btn sky block">Send Message</button>
+      <p class="form-status" style="font-size:12.5px; color:#8a8f97; margin-top:12px;"></p>
+    </form>
+  </div>
+</aside>
+
+<!-- ===== SUCCESS POPUP (shown after a message is sent) ===== -->
+<div class="success-popup-overlay" id="successPopupOverlay"></div>
+<div class="success-popup" id="successPopup" role="alertdialog" aria-hidden="true">
+  <button type="button" class="success-popup-close" id="successPopupClose" aria-label="Close">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <div class="success-popup-icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
+  <h2>Message Sent!</h2>
+  <p>Thanks for reaching out, your message has been sent successfully.</p>
+</div>
+
+<script src="assets/nav.js"></script>
+<script src="assets/theme.js"></script>
+<script src="assets/badge.js"></script>
+</body>
+</html>

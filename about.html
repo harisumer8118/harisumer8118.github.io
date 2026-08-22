@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('theme');
+    var theme = saved || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {}
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About | Haris Umer</title>
+<meta name="description" content="Full-stack developer focused on business systems, SaaS, POS, CRM and e-commerce. Learn about the stack, the process, and the way I work.">
+<meta name="keywords" content="about Haris Umer, full-stack developer bio, Laravel React developer, business systems engineer, software developer process">
+<meta name="author" content="Haris Umer">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#16181c">
+<link rel="canonical" href="https://harisumer.me/about">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Haris Umer">
+<meta property="og:url" content="https://harisumer.me/about">
+<meta property="og:title" content="About | Haris Umer">
+<meta property="og:description" content="Full-stack developer focused on business systems, SaaS, POS, CRM and e-commerce. Learn about the stack, the process, and the way I work.">
+<meta property="og:image" content="https://harisumer.me/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Haris Umer - Business Systems Engineer">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://harisumer.me/about">
+<meta name="twitter:title" content="About | Haris Umer">
+<meta name="twitter:description" content="Full-stack developer focused on business systems, SaaS, POS, CRM and e-commerce. Learn about the stack, the process, and the way I work.">
+<meta name="twitter:image" content="https://harisumer.me/assets/images/og-image.png">
+<meta name="twitter:image:alt" content="Haris Umer - Business Systems Engineer">
+
+<!-- Icons -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/images/logo-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="assets/images/logo-512.png">
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Haris Umer",
+  "url": "https://harisumer.me/",
+  "image": "https://harisumer.me/assets/images/logo-512.png",
+  "jobTitle": "Business Systems Engineer / Full-Stack Developer",
+  "description": "Full-stack developer building production-ready SaaS platforms, POS systems, CRMs and e-commerce applications.",
+  "email": "mailto:contact@harisumer.me",
+  "telephone": "+923336070594",
+  "sameAs": [
+    "https://github.com/harisumer8118",
+    "https://linkedin.com/in/haris-umer-ba3521279",
+    "https://www.facebook.com/profile.php?id=100092946462162",
+    "https://www.instagram.com/harisumer16/"
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="/">
+      <img class="logo-badge" src="assets/images/logo.svg" width="40" height="40" alt="Haris Umer logo" loading="eager">
+      <span class="logo-word">Haris Umer</span>
+    </a>
+    <div class="nav-controls">
+      <div class="theme-toggle-wrap">
+        <span class="bracket">&lt;</span>
+        <button type="button" class="theme-toggle" id="themeToggle" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+          <span class="toggle-thumb"></span>
+        </button>
+        <span class="bracket">&gt;</span>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="links" id="primaryNav">
+      <div class="page-links">
+        <a href="/">Home</a>
+        <a href="/about" class="active">About</a>
+        <a href="/services">Services</a>
+        <a href="/work">Work</a>
+      </div>
+      <a class="btn sky nav-cta" href="/contact">Let's Talk</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="hero-badge-wrap animate-once">
+      <div class="badge code-badge">
+        <span class="prompt" aria-hidden="true">&gt;</span><span class="code-line" id="codeLine" aria-hidden="true"></span><span class="caret" aria-hidden="true">|</span>
+      </div>
+      <span class="sr-only">Available for new projects</span>
+    </div>
+    <h1>The developer behind the code</h1>
+    <p class="lead">I'm Haris Umer, a full-stack developer building the systems that businesses actually run on, not just marketing sites, but the tools behind the scenes: POS, CRM, SaaS and e-commerce platforms.</p>
+  </div>
+</section>
+
+<!-- ===== BIO ===== -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-label-col animate-once">
+        <h2 class="section-title">My story</h2>
+      </div>
+      <div class="split-content-col">
+        <p class="split-lead as-heading">I don't just write code, I build relationships. Every project starts with understanding how a business actually operates, then shaping software around that.</p>
+        <p class="split-lead" style="margin-top:18px;">My focus is on production-ready systems: platforms that hold up under real usage, not just demos. That means clean database design, thoughtful UI, and deployment pipelines that keep things running without surprises. Whether it's a POS system for a busy restaurant floor or a CRM tracking hundreds of leads, the goal is the same, software your team can rely on every single day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section class="section on-cream">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-label-col animate-once">
+        <h2 class="section-title">How I got here</h2>
+      </div>
+      <div class="split-content-col">
+        <div class="timeline stagger-children">
+          <div class="timeline-item">
+            <div class="t-year">Foundations</div>
+            <div class="t-dot-col"><span class="t-dot"></span><span class="t-line"></span></div>
+            <div><h3>Learning to build for real users</h3><p>Started with front-end fundamentals and small client sites, then moved into full application development as projects got more demanding.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="t-year">Growth</div>
+            <div class="t-dot-col"><span class="t-dot"></span><span class="t-line"></span></div>
+            <div><h3>Specializing in business systems</h3><p>Shifted focus toward SaaS dashboards, POS and CRM builds, the software that runs day-to-day operations, not just storefronts.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="t-year">Today</div>
+            <div class="t-dot-col"><span class="t-dot"></span></div>
+            <div><h3>200+ projects, 100% client-focused</h3><p>Working independently with businesses worldwide, delivering production-ready platforms with support that continues after launch.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-label-col animate-once">
+        <h2 class="section-title">Skills &amp; stack</h2>
+      </div>
+      <div class="split-content-col">
+        <p class="split-lead as-heading" style="margin-bottom:30px;">The tools I reach for most, across front-end design, back-end engineering and cloud infrastructure.</p>
+
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Front-end designing &amp; development</h3>
+          <div class="skill-logo-grid stagger-children">
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/react" alt="React logo" loading="lazy"></span><span class="skill-logo-name">React</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/javascript" alt="JavaScript logo" loading="lazy"></span><span class="skill-logo-name">JavaScript</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/html5" alt="HTML5 logo" loading="lazy"></span><span class="skill-logo-name">HTML</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/css" alt="CSS3 logo" loading="lazy"></span><span class="skill-logo-name">CSS</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/wordpress" alt="WordPress logo" loading="lazy"></span><span class="skill-logo-name">WordPress</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/wix" alt="Wix logo" loading="lazy"></span><span class="skill-logo-name">Wix</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/webflow" alt="Webflow logo" loading="lazy"></span><span class="skill-logo-name">Webflow</span></div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Back-end designing &amp; development</h3>
+          <div class="skill-logo-grid stagger-children">
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/nodedotjs" alt="Node.js logo" loading="lazy"></span><span class="skill-logo-name">Node.js</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/php" alt="PHP logo" loading="lazy"></span><span class="skill-logo-name">PHP</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/laravel" alt="Laravel logo" loading="lazy"></span><span class="skill-logo-name">Laravel</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/mysql" alt="MySQL logo" loading="lazy"></span><span class="skill-logo-name">MySQL</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/mongodb" alt="MongoDB logo" loading="lazy"></span><span class="skill-logo-name">MongoDB</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/swagger" alt="REST API logo" loading="lazy"></span><span class="skill-logo-name">REST API</span></div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Cloud &amp; DevOps</h3>
+          <div class="skill-logo-grid stagger-children">
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS logo" loading="lazy"></span><span class="skill-logo-name">AWS</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" alt="Microsoft Azure logo" loading="lazy"></span><span class="skill-logo-name">Azure</span></div>
+            <div class="skill-logo-card"><span class="skill-logo-icon"><img src="https://cdn.simpleicons.org/docker" alt="Docker logo" loading="lazy"></span><span class="skill-logo-name">DevOps</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FACTS ===== -->
+<section class="section tight on-cream">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-label-col animate-once">
+        <h2 class="section-title">By the numbers</h2>
+      </div>
+      <div class="split-content-col">
+        <div class="fact-grid stagger-children">
+          <div class="fact-card"><div class="n">200+</div><h4>Projects Delivered</h4><p>Web applications, POS, SaaS and e-commerce systems shipped for clients worldwide.</p></div>
+          <div class="fact-card"><div class="n">100%</div><h4>Client Satisfaction</h4><p>Every project scoped around what the client actually needs, not extra features.</p></div>
+          <div class="fact-card"><div class="n">24/7</div><h4>Support Coverage</h4><p>Monitoring, updates and fixes don't stop once a project goes live.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="eyebrow">Let's build something</div>
+    <h2>Have a project in mind?</h2>
+    <p>Tell me what you're trying to build. I'll reply instantly with next steps.</p>
+    <a class="btn sky" href="/contact">Start a Conversation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a class="logo" href="/">
+          <img class="logo-badge" src="assets/images/logo.svg" width="40" height="40" alt="Haris Umer logo" loading="eager">
+          <span class="logo-word" style="color:#fff;">Haris Umer</span>
+        </a>
+        <p>Independent developer building web applications, POS, SaaS and e-commerce systems clients rely on.</p>
+        <div class="social-row">
+          <a href="https://github.com/harisumer8118" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          <a href="https://linkedin.com/in/haris-umer-ba3521279" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100092946462162" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/harisumer16/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://wa.me/923336070594" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Navigation</h6>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/work">Work</a>
+      </div>
+      <div class="footer-col">
+        <h6>Connect</h6>
+        <a href="mailto:contact@harisumer.me">contact@harisumer.me</a>
+        <a href="tel:+923336070594">+92 333 6070594</a>
+        <a href="/contact">Send a message</a>
+      </div>
+      <div class="footer-col">
+        <h6>Availability</h6>
+        <p>Global · remote ready</p>
+        <p>Instant replies</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Haris Umer. All rights reserved.</span>
+      <span>Built with care, line by line.</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ===== LET'S TALK POPUP (slide-in form) ===== -->
+<div class="talk-popup-overlay" id="talkPopupOverlay"></div>
+<aside class="talk-popup" id="talkPopup" aria-hidden="true">
+  <button type="button" class="talk-popup-close" id="talkPopupClose" aria-label="Close contact form">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <div class="talk-popup-inner">
+    <div class="eyebrow" style="color:#8a8f97;">Send a message</div>
+    <h2>Let's build something amazing together</h2>
+    <p class="talk-popup-lead">Send over a few details about your project and I'll reply instantly, no automated runaround.</p>
+    <form id="talkPopupForm">
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-name">Your Name</label>
+        <input id="talk-name" type="text" data-field="name" placeholder="e.g., Morgan Chen" required>
+      </div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-email">Email Address</label>
+        <input id="talk-email" type="email" data-field="email" placeholder="client@company.com" required>
+      </div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-phone">Phone</label>
+        <input id="talk-phone" type="tel" data-field="phone" placeholder="+92 300 1234567">
+      </div>
+      <div class="form-field" style="margin-bottom:20px;">
+        <label for="talk-message">Project / Message</label>
+        <textarea id="talk-message" rows="5" data-field="message" placeholder="I need a system that handles..." required></textarea>
+      </div>
+      <button type="submit" class="btn sky block">Send Message</button>
+      <p class="form-status" style="font-size:12.5px; color:#8a8f97; margin-top:12px;"></p>
+    </form>
+  </div>
+</aside>
+
+<!-- ===== SUCCESS POPUP (shown after a message is sent) ===== -->
+<div class="success-popup-overlay" id="successPopupOverlay"></div>
+<div class="success-popup" id="successPopup" role="alertdialog" aria-hidden="true">
+  <button type="button" class="success-popup-close" id="successPopupClose" aria-label="Close">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <div class="success-popup-icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
+  <h2>Message Sent!</h2>
+  <p>Thanks for reaching out, your message has been sent successfully.</p>
+</div>
+
+<script src="assets/nav.js"></script>
+<script src="assets/theme.js"></script>
+<script src="assets/badge.js"></script>
+</body>
+</html>

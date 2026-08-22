@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Haris Umer logo">
+  <title>Haris Umer</title>
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#bfe4fb"/>
+      <stop offset="55%" stop-color="#e7edf1"/>
+      <stop offset="100%" stop-color="#f8f2e6"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#logoGrad)"/>
+  <rect x="1" y="1" width="62" height="62" rx="17" fill="none" stroke="rgba(22,24,28,.10)" stroke-width="1"/>
+  <path d="M25 21 L14 32 L25 43" fill="none" stroke="#16181c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M39 21 L50 32 L39 43" fill="none" stroke="#16181c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

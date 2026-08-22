@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('theme');
+    var theme = saved || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {}
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Work | Haris Umer</title>
+<meta name="description" content="Selected projects by Haris Umer, POS systems, CRM platforms and e-commerce builds shipped for real businesses.">
+<meta name="keywords" content="Haris Umer portfolio, web development projects, POS system projects, CRM projects, e-commerce case studies">
+<meta name="author" content="Haris Umer">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#16181c">
+<link rel="canonical" href="https://harisumer.me/work">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Haris Umer">
+<meta property="og:url" content="https://harisumer.me/work">
+<meta property="og:title" content="Work | Haris Umer">
+<meta property="og:description" content="Selected projects by Haris Umer, POS systems, CRM platforms and e-commerce builds shipped for real businesses.">
+<meta property="og:image" content="https://harisumer.me/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Haris Umer - Business Systems Engineer">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://harisumer.me/work">
+<meta name="twitter:title" content="Work | Haris Umer">
+<meta name="twitter:description" content="Selected projects by Haris Umer, POS systems, CRM platforms and e-commerce builds shipped for real businesses.">
+<meta name="twitter:image" content="https://harisumer.me/assets/images/og-image.png">
+<meta name="twitter:image:alt" content="Haris Umer - Business Systems Engineer">
+
+<!-- Icons -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/images/logo-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="assets/images/logo-512.png">
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Haris Umer",
+  "url": "https://harisumer.me/",
+  "image": "https://harisumer.me/assets/images/logo-512.png",
+  "jobTitle": "Business Systems Engineer / Full-Stack Developer",
+  "description": "Full-stack developer building production-ready SaaS platforms, POS systems, CRMs and e-commerce applications.",
+  "email": "mailto:contact@harisumer.me",
+  "telephone": "+923336070594",
+  "sameAs": [
+    "https://github.com/harisumer8118",
+    "https://linkedin.com/in/haris-umer-ba3521279",
+    "https://www.facebook.com/profile.php?id=100092946462162",
+    "https://www.instagram.com/harisumer16/"
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="/">
+      <img class="logo-badge" src="assets/images/logo.svg" width="40" height="40" alt="Haris Umer logo" loading="eager">
+      <span class="logo-word">Haris Umer  </span>
+    </a>
+    <div class="nav-controls">
+      <div class="theme-toggle-wrap">
+        <span class="bracket">&lt;</span>
+        <button type="button" class="theme-toggle" id="themeToggle" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+          <span class="toggle-thumb"></span>
+        </button>
+        <span class="bracket">&gt;</span>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="links" id="primaryNav">
+      <div class="page-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/work" class="active">Work</a>
+      </div>
+      <a class="btn sky nav-cta" href="/contact">Let's Talk</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="hero-badge-wrap animate-once">
+      <div class="badge code-badge">
+        <span class="prompt" aria-hidden="true">&gt;</span><span class="code-line" id="codeLine" aria-hidden="true"></span><span class="caret" aria-hidden="true">|</span>
+      </div>
+      <span class="sr-only">Available for new projects</span>
+    </div>
+    <h1>Systems built for real operations</h1>
+    <p class="lead">Three projects, three different problems, a checkout counter, a sales pipeline, and a storefront. Each one built end-to-end.</p>
+  </div>
+</section>
+
+<!-- ===== PROJECTS SHOWCASE =====
+  Scalable project grid: three columns per row. The first 9 project cards
+  (no "is-extra" class) are visible by default. Any card with class
+  "is-extra" stays hidden until "View All Projects" is clicked.
+  TO ADD A NEW PROJECT LATER: copy any .project-card block and place it
+  inside the #projectsGrid container. If you already have 9+ visible
+  cards, add class="project-card is-extra" to the new one so it joins
+  the hidden set until the button is clicked.
+-->
+<section class="section">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-label-col animate-once">
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="split-content-col">
+        <p class="split-lead as-heading" style="margin-bottom:30px;">A growing collection of business systems and websites, built end-to-end.</p>
+
+       
+      </div>
+    </div>
+     <div class="works-grid project-showcase stagger-children" id="projectsGrid">
+
+          <div class="work-card project-card">
+            <div class="work-shot"><img src="assets/images/pos-screenshot.png" alt="Point of sale system dashboard"></div>
+            <div class="work-body">
+              <h3>Retail &amp; Restaurant POS</h3>
+              <p>A point-of-sale system designed for speed at the counter, order entry, inventory sync and receipt printing in a single flow.</p>
+              <div class="tags"><span class="tag">Retail</span><span class="tag">POS</span></div>
+            </div>
+          </div>
+
+          <div class="work-card project-card">
+            <div class="work-shot"><img src="assets/images/crm-screenshot.png" alt="Real estate CRM dashboard"></div>
+            <div class="work-body">
+              <h3>Real Estate CRM</h3>
+              <p>A lead-tracking CRM built for a busy sales team, pipeline stages, automated follow-ups and a clear view of every deal.</p>
+              <div class="tags"><span class="tag">CRM</span><span class="tag">Automation</span></div>
+            </div>
+          </div>
+
+          <div class="work-card project-card">
+            <div class="work-shot"><img src="assets/images/ecom.png" alt="E-commerce storefront screenshot"></div>
+            <div class="work-body">
+              <h3>E-Commerce Platform</h3>
+              <p>A custom storefront on a Laravel backend, built for fast page loads, a clean checkout and an easy-to-manage catalog.</p>
+              <div class="tags"><span class="tag">E-Commerce</span><span class="tag">Laravel</span></div>
+            </div>
+          </div>
+
+          <div class="work-card project-card">
+            <div class="work-shot placeholder"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+            <div class="work-body">
+              <h3>SaaS Analytics Dashboard</h3>
+              <p>A multi-tenant admin dashboard with live usage charts, account management and role-based access for a subscription platform.</p>
+              <div class="tags"><span class="tag">SaaS</span><span class="tag">Dashboard</span></div>
+            </div>
+          </div>
+
+          <div class="work-card project-card">
+            <div class="work-shot placeholder"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></div>
+            <div class="work-body">
+              <h3>Booking &amp; Reservation Platform</h3>
+              <p>A scheduling system with live availability, automated confirmations and reminders for a multi-location service business.</p>
+              <div class="tags"><span class="tag">Booking</span><span class="tag">Automation</span></div>
+            </div>
+          </div>
+
+          <div class="work-card project-card">
+            <div class="work-shot placeholder"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+            <div class="work-body">
+              <h3>Inventory Management System</h3>
+              <p>Stock tracking that stays accurate across multiple sales channels and warehouse locations, with low-stock alerts built in.</p>
+              <div class="tags"><span class="tag">Inventory</span><span class="tag">Multi-Location</span></div>
+            </div>
+          </div>
+
+          <div class="work-card project-card">
+            <div class="work-shot placeholder"><i class="fa-brands fa-wordpress" aria-hidden="true"></i></div>
+            <div class="work-body">
+              <h3>WordPress Business Website</h3>
+              <p>A custom-designed WordPress site with a WooCommerce store, built to be fast, professional and easy for the client to update.</p>
+              <div class="tags"><span class="tag">WordPress</span><span class="tag">Design</span></div>
+            </div>
+          </div>
+
+          <div class="work-card project-card">
+            <div class="work-shot placeholder"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
+            <div class="work-body">
+              <h3>Webflow Marketing Website</h3>
+              <p>A fully responsive Webflow site for a growing brand, designed for conversions with clean animations and fast load times.</p>
+              <div class="tags"><span class="tag">Webflow</span><span class="tag">Marketing</span></div>
+            </div>
+          </div>
+
+          <div class="work-card project-card">
+            <div class="work-shot placeholder"><i class="fa-solid fa-plug" aria-hidden="true"></i></div>
+            <div class="work-body">
+              <h3>Custom REST API Integration</h3>
+              <p>A documented REST API connecting a client's internal tools with third-party payment and shipping providers.</p>
+              <div class="tags"><span class="tag">API</span><span class="tag">Integration</span></div>
+            </div>
+          </div>
+
+          <div class="work-card project-card is-extra">
+            <div class="work-shot placeholder"><i class="fa-brands fa-wix" aria-hidden="true"></i></div>
+            <div class="work-body">
+              <h3>Wix Small Business Website</h3>
+              <p>A clean, custom-designed Wix site for a local business, built to be simple for the owner to manage after handover.</p>
+              <div class="tags"><span class="tag">Wix</span><span class="tag">Small Business</span></div>
+            </div>
+          </div>
+
+          <div class="work-card project-card is-extra">
+            <div class="work-shot placeholder"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
+            <div class="work-body">
+              <h3>Restaurant Booking Website</h3>
+              <p>A WordPress site with an integrated table-reservation flow, menu management and online ordering for a restaurant group.</p>
+              <div class="tags"><span class="tag">WordPress</span><span class="tag">Booking</span></div>
+            </div>
+          </div>
+
+          <div class="work-card project-card is-extra">
+            <div class="work-shot placeholder"><i class="fa-solid fa-users-gear" aria-hidden="true"></i></div>
+            <div class="work-body">
+              <h3>Field Services CRM</h3>
+              <p>A custom CRM for a field-services company to schedule jobs, track technicians and manage customer follow-ups.</p>
+              <div class="tags"><span class="tag">CRM</span><span class="tag">Field Services</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:36px;">
+          <button type="button" class="btn ghost" id="viewAllProjectsBtn">View All Projects</button>
+        </div>
+  </div>
+</section>
+
+<!-- ===== APPROACH RECAP ===== -->
+<section class="section on-gray">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-label-col animate-once">
+        <h2 class="section-title">Every project, same standard</h2>
+      </div>
+      <div class="split-content-col">
+        <div class="fact-grid stagger-children">
+          <div class="fact-card"><div class="n">200+</div><h4>Projects Delivered</h4><p>Across retail, real estate, services and e-commerce.</p></div>
+          <div class="fact-card"><div class="n">100%</div><h4>Built to Spec</h4><p>Scoped around what the business needs, not extra features.</p></div>
+          <div class="fact-card"><div class="n">24/7</div><h4>Post-Launch Support</h4><p>Monitoring and fixes continue after the project ships.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="eyebrow">Let's build something</div>
+    <h2>Got a similar project?</h2>
+    <p>Whether it's a POS system, a CRM, or a storefront that needs rebuilding, let's talk through it.</p>
+    <a class="btn sky" href="/contact">Start a Conversation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a class="logo" href="/">
+          <img class="logo-badge" src="assets/images/logo.svg" width="40" height="40" alt="Haris Umer logo" loading="eager">
+          <span class="logo-word" style="color:#fff;">Haris Umer  </span>
+        </a>
+        <p>Independent developer building web applications, POS, SaaS and e-commerce systems clients rely on.</p>
+        <div class="social-row">
+          <a href="https://github.com/harisumer8118" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          <a href="https://linkedin.com/in/haris-umer-ba3521279" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100092946462162" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/harisumer16/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://wa.me/923336070594" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Navigation</h6>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/work">Work</a>
+      </div>
+      <div class="footer-col">
+        <h6>Connect</h6>
+        <a href="mailto:contact@harisumer.me">contact@harisumer.me</a>
+        <a href="tel:+923336070594">+92 333 6070594</a>
+        <a href="/contact">Send a message</a>
+      </div>
+      <div class="footer-col">
+        <h6>Availability</h6>
+        <p>Global · remote ready</p>
+        <p>Instant replies</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Haris Umer. All rights reserved.</span>
+      <span>Built with care, line by line.</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ===== LET'S TALK POPUP (slide-in form) ===== -->
+<div class="talk-popup-overlay" id="talkPopupOverlay"></div>
+<aside class="talk-popup" id="talkPopup" aria-hidden="true">
+  <button type="button" class="talk-popup-close" id="talkPopupClose" aria-label="Close contact form">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <div class="talk-popup-inner">
+    <div class="eyebrow" style="color:#8a8f97;">Send a message</div>
+    <h2>Let's build something amazing together</h2>
+    <p class="talk-popup-lead">Send over a few details about your project and I'll reply instantly, no automated runaround.</p>
+    <form id="talkPopupForm">
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-name">Your Name</label>
+        <input id="talk-name" type="text" data-field="name" placeholder="e.g., Morgan Chen" required>
+      </div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-email">Email Address</label>
+        <input id="talk-email" type="email" data-field="email" placeholder="client@company.com" required>
+      </div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="talk-phone">Phone</label>
+        <input id="talk-phone" type="tel" data-field="phone" placeholder="+92 300 1234567">
+      </div>
+      <div class="form-field" style="margin-bottom:20px;">
+        <label for="talk-message">Project / Message</label>
+        <textarea id="talk-message" rows="5" data-field="message" placeholder="I need a system that handles..." required></textarea>
+      </div>
+      <button type="submit" class="btn sky block">Send Message</button>
+      <p class="form-status" style="font-size:12.5px; color:#8a8f97; margin-top:12px;"></p>
+    </form>
+  </div>
+</aside>
+
+<!-- ===== SUCCESS POPUP (shown after a message is sent) ===== -->
+<div class="success-popup-overlay" id="successPopupOverlay"></div>
+<div class="success-popup" id="successPopup" role="alertdialog" aria-hidden="true">
+  <button type="button" class="success-popup-close" id="successPopupClose" aria-label="Close">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <div class="success-popup-icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
+  <h2>Message Sent!</h2>
+  <p>Thanks for reaching out, your message has been sent successfully.</p>
+</div>
+
+<script src="assets/nav.js"></script>
+<script src="assets/theme.js"></script>
+<script src="assets/badge.js"></script>
+</body>
+</html>
